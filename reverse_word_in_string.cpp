@@ -49,6 +49,7 @@ class Solution{
     ReverseSubstring rev;
     char tmp;
     rev.reverseWords(s);
+ 
     int left = 0;
     int right = s.size() - 1;
     while (left < right){
@@ -68,9 +69,8 @@ class Solution{
     if (before != 0){
       s.erase(0,before);
     }
-    before++;
     int end = s.size() - 1;
-    while((end > before) && (s[end] == ' ')){
+    while((end > 0) && (s[end] == ' ')){
       end--;
     }
     s.resize(end + 1);
@@ -84,6 +84,6 @@ int main()
   string s;
   getline(cin,s);
   solution.reverseWords(s);
-  cout << s << endl;
+  cout << s << "end" << endl;
   return 0;
 }
