@@ -1,13 +1,16 @@
-default: evaluate_rpn
+default: single_number
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=reverse_word_in_string evaluate_rpn
+PROGRAM=reverse_word_in_string evaluate_rpn single_number
 
 all: $(PROGRAM)
 reverse_word_in_string: reverse_word_in_string.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 evaluate_rpn: evaluate_rpn.cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+single_number: single_number.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 
