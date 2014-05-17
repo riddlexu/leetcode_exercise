@@ -1,6 +1,6 @@
 default: evaluate_rpn
 CC=g++
-CFLAGS=-O3 -Wall
+CFLAGS=-O3 -Wall -std=c++11
 PROGRAM=reverse_word_in_string evaluate_rpn
 
 all: $(PROGRAM)
