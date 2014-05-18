@@ -1,5 +1,6 @@
 #include<vector>
 #include<iostream>
+#include<stack>
 using namespace std;
 
 struct TreeNode {
@@ -29,12 +30,36 @@ class Solution {
 
     return ans;
   }
+  
+  vector<int> preorderTraversal_iter(TreeNode *root){
+    vector<int> ans;
+    stack<TreeNode*> mystack;
+    vector<int> left;
+    TreeNode* top;
+    
+    visit_bottom(root,mystack,ans);
+    while(mystack.size() > 0){
+      top = mystack.top();
+      mystack.pop();
+      visit_bottom(top,mystack,ans);
+    }
+    return ans;
+  }
+  void visit_bottom(TreeNode *root, stack<TreeNode*> &mystack, vector<int> &preorder){
+    while(root != NULL){
+      preorder.push_back(root->val);
+      if (root->right != NULL){
+        mystack.push(root->right);
+      }
+      root = root->left;
+    }
+  }
 };
 
 int main()
 {
   Solution solution;
   TreeNode tree(2);
-  vector<int> preorder = solution.preorderTraversal(&tree);
+  vector<int> preorder = solution.preorderTraversal_iter(&tree);
   return 0;
 }
