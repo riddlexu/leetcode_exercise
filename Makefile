@@ -2,7 +2,7 @@ default: postorder_traversal
 WORK=postorder_traversal
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=reverse_word_in_string evaluate_rpn single_number max_depth_tree same_tree reverse_int preorder_traversal postorder_traversal
+PROGRAM=reverse_word_in_string evaluate_rpn single_number max_depth_tree same_tree reverse_int preorder_traversal postorder_traversal single_number_2
 
 all: $(PROGRAM)
 reverse_word_in_string: reverse_word_in_string.cpp
@@ -27,6 +27,9 @@ preorder_traversal: preorder_traversal.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 postorder_traversal: postorder_traversal.cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+single_number_2: single_number_2.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 
