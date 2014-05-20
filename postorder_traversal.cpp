@@ -34,10 +34,22 @@ class Solution {
     vector<int> ans;
     stack<TreeNode*> mystack;
     vector<int> left;
-    TreeNode* top;
+    TreeNode* top,x;
+    if (root != NULL){
+      mystack.push(root);
+    }
+    while(!(mystack.empty())){
+      top = mystack.top();
+      if (top->left != root){
+        goto_hlvfl(mystack);
+      }
+      root = mystack.top();
+      mystack.pop();
+      ans.push(root->val);
+    }
     return ans;
   }
-  void visit_bottom(TreeNode *root, stack<TreeNode*> &mystack, vector<int> &postorder){
+  void goto_hlvfl(TreeNode *root, stack<TreeNode*> &mystack, vector<int> &postorder){
     while(root != NULL){
       postorder.push_back(root->val);
       if (root->right != NULL){
