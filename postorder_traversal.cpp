@@ -34,28 +34,34 @@ class Solution {
     vector<int> ans;
     stack<TreeNode*> mystack;
     vector<int> left;
-    TreeNode* top,x;
+    TreeNode* top;
     if (root != NULL){
       mystack.push(root);
     }
     while(!(mystack.empty())){
       top = mystack.top();
-      if (top->left != root){
+      if ((top->left != root) && (top->right != root)){
         goto_hlvfl(mystack);
       }
       root = mystack.top();
       mystack.pop();
-      ans.push(root->val);
+      ans.push_back(root->val);
     }
     return ans;
   }
-  void goto_hlvfl(TreeNode *root, stack<TreeNode*> &mystack, vector<int> &postorder){
-    while(root != NULL){
-      postorder.push_back(root->val);
-      if (root->right != NULL){
-        mystack.push(root->right);
+  void goto_hlvfl(stack<TreeNode*> &mystack){
+    TreeNode* node = mystack.top();
+    while(node->left || node->right){
+      if (node->left){
+        if (node->right){
+          mystack.push(node->right);
+        }
+        mystack.push(node->left);
       }
-      root = root->left;
+      else {
+        mystack.push(node->right);
+      }
+      node = mystack.top();
     }
   }
 };
@@ -63,7 +69,10 @@ class Solution {
 int main()
 {
   Solution solution;
-  TreeNode tree(2);
+  TreeNode tree(1);
+  TreeNode tree2(2);
+  TreeNode* treepoint = &tree;
+  treepoint->right = &tree2;
   vector<int> postorder = solution.postorderTraversal_iter(&tree);
   return 0;
 }
