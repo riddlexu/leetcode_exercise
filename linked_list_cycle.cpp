@@ -10,7 +10,29 @@ struct ListNode {
 class Solution {
  public:
   bool hasCycle(ListNode *head) {
-    
+    if (head == NULL){
+      return false;
+    }
+    ListNode* slow = head;
+    ListNode* fast = head;
+    do{
+      slow = slow->next;
+      if (slow == NULL){
+        return false;
+      }
+      fast = fast->next;
+      if (fast == NULL){
+        return false;
+      }
+      fast = fast->next;
+      if (fast == NULL){
+        return false;
+      }
+      if (fast == slow){
+        return true;
+      }
+    }
+    while(true);
   }
 };
 
