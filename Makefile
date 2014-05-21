@@ -1,9 +1,9 @@
-default: postorder_traversal
+Default: linked_list_cycle
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=postorder_traversal
+PROGRAM=linked_list_cycle
 
-postorder_traversal: postorder_traversal.cpp
+linked_list_cycle: linked_list_cycle.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
