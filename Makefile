@@ -1,9 +1,9 @@
-Default: linked_list_cycle
+Default: linked_list_cycle_2
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=linked_list_cycle
+PROGRAM=linked_list_cycle_2
 
-linked_list_cycle: linked_list_cycle.cpp
+linked_list_cycle_2: linked_list_cycle_2.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
