@@ -1,6 +1,4 @@
-#include<vector>
 #include<iostream>
-#include<stack>
 using namespace std;
 
 struct TreeNode {
@@ -13,8 +11,30 @@ struct TreeNode {
 class Solution {
  public:
   bool isSymmetric(TreeNode *root) {
-    
+    if (root == NULL){
+      return true;
+    }
+    return isSameTree(root->left, root->right);
   }
+
+  bool isSameTree(TreeNode *p, TreeNode *q) {
+    bool ans;
+    if (p == NULL){
+      if (q == NULL){
+        ans = true;
+      }
+      else{
+        ans = false;
+      }
+      return ans;
+    }
+
+    if (q == NULL){
+      return false;
+    }
+    return ((p->val == q->val) && isSameTree(p->left,q->right) && isSameTree(p->right, q->left));
+  }
+
 };
 
 
@@ -25,6 +45,6 @@ int main()
   TreeNode tree2(2);
   TreeNode* treepoint = &tree;
   treepoint->right = &tree2;
-  cout << solution.isSymmetric(tree) << endl;
+  cout << solution.isSymmetric(&tree) << endl;
   return 0;
 }
