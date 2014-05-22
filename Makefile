@@ -1,9 +1,9 @@
-Default: linked_list_cycle_2
+Default: symmetric_tree
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=linked_list_cycle_2
+PROGRAM=symmetric_tree
 
-linked_list_cycle_2: linked_list_cycle_2.cpp
+symmetric_tree: symmetric_tree.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
