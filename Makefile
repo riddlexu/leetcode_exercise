@@ -1,9 +1,9 @@
-Default: merge_sorted_array
+Default: valid_parenthese
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=merge_sorted_array
+PROGRAM=valid_parenthese
 
-merge_sorted_array: merge_sorted_array.cpp
+valid_parenthese: valid_parenthese.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
