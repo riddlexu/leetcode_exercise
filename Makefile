@@ -1,9 +1,9 @@
-Default: valid_parenthese
+Default: level_traversal
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=valid_parenthese
+PROGRAM=level_traversal
 
-valid_parenthese: valid_parenthese.cpp
+level_traversal: level_traversal.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
