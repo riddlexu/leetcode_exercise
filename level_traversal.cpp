@@ -24,10 +24,25 @@ class Solution {
     queue<pair<TreeNode*, int> > myqueue;
     myqueue.push(con);
 
-    TreeNode* node;
+    pair<TreeNode*, int> temp;
+    int level = 0;
     while(myqueue.empty() != true){
-      node = mydeque.front();
-      
+      temp = myqueue.front();
+      if (temp.second == level){
+        level++;
+        vector<int> newele;
+        ans.push_back(newele);
+      }
+      ans[temp.second].push_back((temp.first)->val);
+
+
+      if ((temp.first)->left != NULL){
+        myqueue.push(make_pair((temp.first)->left, temp.second + 1));
+      }
+      if ((temp.first)->right != NULL){
+        myqueue.push(make_pair((temp.first)->right, temp.second + 1));
+      }
+      myqueue.pop();
     }
     return ans;
   }
