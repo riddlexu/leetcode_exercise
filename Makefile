@@ -1,9 +1,9 @@
-Default: level_traversal
+Default: pow
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=level_traversal
+PROGRAM=pow
 
-level_traversal: level_traversal.cpp
+pow: pow.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
