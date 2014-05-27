@@ -1,9 +1,9 @@
-Default: sqrt
+Default: inorder_traversal
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=sqrt
+PROGRAM=inorder_traversal
 
-sqrt: sqrt.cpp
+inorder_traversal: inorder_traversal.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
