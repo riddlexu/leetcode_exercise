@@ -1,9 +1,9 @@
-Default: pow
+Default: sqrt
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=pow
+PROGRAM=sqrt
 
-pow: pow.cpp
+sqrt: sqrt.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
