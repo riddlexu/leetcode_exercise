@@ -32,7 +32,29 @@ class Solution {
     return ans;
   }
 
-  
+  vector<int> inorderTraversal_iter(TreeNode *root) {
+    vector<int> ans;
+    stack<TreeNode*> mystack;
+    if (root == NULL){
+      return ans;
+    }
+    while(true){
+      if (root){
+        mystack.push(root);
+        root = root->left;
+      }
+      else if (!mystack.empty()){
+        root = mystack.top();
+        ans.push_back(root->val);
+        mystack.pop();
+        root = root->right;
+      }
+      else{
+        break;
+      }
+    }
+    return ans;
+  }  
 };
 
 
@@ -43,6 +65,6 @@ int main()
   TreeNode tree2(2);
   TreeNode* treepoint = &tree;
   treepoint->right = &tree2;
-  vector<int> inorder = solution.inorderTraversal(&tree);
+  vector<int> inorder = solution.inorderTraversal_iter(&tree);
   return 0;
 }
