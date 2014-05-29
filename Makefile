@@ -1,9 +1,9 @@
-Default: inorder_traversal
+Default: min_depth_tree
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=inorder_traversal
+PROGRAM=min_depth_tree
 
-inorder_traversal: inorder_traversal.cpp
+min_depth_tree: min_depth_tree.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
