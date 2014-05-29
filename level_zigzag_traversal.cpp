@@ -14,7 +14,7 @@ struct TreeNode {
  
 class Solution {
  public:
-  vector<vector<int> > levelOrder(TreeNode *root) {
+  vector<vector<int> > zigzagLevelOrder(TreeNode *root) {
     vector<vector<int> > ans;
     if (root == NULL){
       return ans;
@@ -26,6 +26,7 @@ class Solution {
 
     pair<TreeNode*, int> temp;
     int level = 0;
+    vector<int>::iterator it;
     while(myqueue.empty() != true){
       temp = myqueue.front();
       if (temp.second == level){
@@ -33,7 +34,13 @@ class Solution {
         vector<int> newele;
         ans.push_back(newele);
       }
-      ans[temp.second].push_back((temp.first)->val);
+      if (level % 2 == 1){
+        ans[temp.second].push_back((temp.first)->val);
+      }
+      else {
+        it = ans[temp.second].begin();
+        ans[temp.second].insert(it,(temp.first)->val);
+      }
 
 
       if ((temp.first)->left != NULL){
@@ -55,7 +62,7 @@ int main()
   TreeNode tree2(2);
   TreeNode* treepoint = &tree;
   treepoint->right = &tree2;
-  vector<vector<int> > levelorder = solution.levelOrder(&tree);
+  vector<vector<int> > levelorder = solution.zigzagLevelOrder(&tree);
   return 0;
 }
 
