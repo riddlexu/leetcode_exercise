@@ -1,9 +1,9 @@
-Default: permutations
+Default: next_permutations
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=permutations
+PROGRAM=next_permutations
 
-permutations: permutations.cpp
+next_permutations: next_permutations.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
