@@ -1,9 +1,9 @@
-Default: generate_parenteses
+Default: permutations
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=generate_parenteses
+PROGRAM=permutations
 
-generate_parenteses: generate_parenteses.cpp
+permutations: permutations.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
