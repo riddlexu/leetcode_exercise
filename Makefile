@@ -1,9 +1,9 @@
-Default: climb_stair
+Default: generate_parenteses
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=climb_stair
+PROGRAM=generate_parenteses
 
-climb_stair: climb_stair.cpp
+generate_parenteses: generate_parenteses.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
