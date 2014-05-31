@@ -21,10 +21,20 @@ class Solution {
     unsigned int start;
     unsigned int end;
     if (flag){
-      temp = num[loc];
-      num[loc] = num[loc-1];
-      num[loc-1] = temp;
-      start = loc + 1;
+      int max_loc = loc;
+      int max = num[loc];
+      for (unsigned int i = loc + 1; i < num.size(); i++){
+        if (num[i] > num[loc-1]){
+          max_loc = i;
+          max = num[i];
+        }
+        else{
+          break;
+        }
+      }
+      num[max_loc] = num[loc-1];
+      num[loc-1] = max;
+      start = loc;
       end = num.size() - 1;
       while(start < end){
         temp = num[start];
@@ -33,7 +43,6 @@ class Solution {
         start++;
         end--;
       }
-
     }
     else{
       start = 0;
