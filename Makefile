@@ -1,9 +1,9 @@
-Default: remove_element
+Default: search_insert_pos
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=remove_element
+PROGRAM=search_insert_pos
 
-remove_element: remove_element.cpp
+search_insert_pos: search_insert_pos.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
