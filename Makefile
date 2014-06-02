@@ -1,9 +1,9 @@
-Default: remove_duplicate
+Default: remove_element
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=remove_duplicate
+PROGRAM=remove_element
 
-remove_duplicate: remove_duplicate.cpp
+remove_element: remove_element.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
