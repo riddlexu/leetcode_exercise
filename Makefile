@@ -1,9 +1,9 @@
-Default: swap_node_pair
+Default: remove_duplicate
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=swap_node_pair
+PROGRAM=remove_duplicate
 
-swap_node_pair: swap_node_pair.cpp
+remove_duplicate: remove_duplicate.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
