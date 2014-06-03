@@ -1,9 +1,9 @@
-Default: search_insert_pos
+Default: remove_duplicate_second
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=search_insert_pos
+PROGRAM=remove_duplicate_second
 
-search_insert_pos: search_insert_pos.cpp
+remove_duplicate_second: remove_duplicate_second.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
