@@ -1,9 +1,9 @@
-Default: remove_duplicate_from_list_second
+Default: rotate_image
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=remove_duplicate_from_list_second
+PROGRAM=rotate_image
 
-remove_duplicate_from_list_second: remove_duplicate_from_list_second.cpp
+rotate_image: rotate_image.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
