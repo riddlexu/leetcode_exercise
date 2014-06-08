@@ -1,9 +1,9 @@
-Default: spiral_matrix
+Default: level_traversal_two
 CC=g++
 CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=spiral_matrix
+PROGRAM=level_traversal_two
 
-spiral_matrix: spiral_matrix.cpp
+level_traversal_two: level_traversal_two.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
