@@ -16,27 +16,35 @@ class Solution {
     if (n == 0){
       return ans;
     }
-
-    if (n == 1){
-      for (int i = 0; i < m; ++i){
-        ans.push_back(matrix[i][0]);
-      }
-      return ans;
-    }
-    else if (m == 1){
-      for (int i = 0; i < n; ++i){
-        ans.push_back(matrix[0][i]);
-      }
-      return ans;
-    }
-
     int left = 0;
     int right = n;
     int top = 0;
     int bottom = m;
-
-    while((left >= right) && (top >= bottom)){
-      
+    while((left < right) || (top < bottom)){
+      if (top < bottom){
+        for (int i = left; i < right; ++i){
+          ans.push_back(matrix[top][i]);
+        }
+        top++;
+      }
+      if (left < right){
+        for (int i = top; i < bottom; ++i){
+          ans.push_back(matrix[i][right-1]);
+        }
+        right--;
+      }
+      if (top < bottom){
+        for (int i = right - 1; i >= left; --i){
+          ans.push_back(matrix[bottom-1][i]);
+        }
+        bottom--;
+      }
+      if (left < right){
+        for (int i = bottom - 1; i >= top; --i){
+          ans.push_back(matrix[i][left]);
+        }
+        left++;
+      }
     }
     return ans;
   }
