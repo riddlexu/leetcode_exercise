@@ -1,9 +1,9 @@
-Default: combinations
+Default: construct_tree_prev
 CC=g++
-CFLAGS=-O3 -Wall -std=c++11
-PROGRAM=combinations
+CFLAGS=-Wall -std=c++11 -g
+PROGRAM=construct_tree_prev
 
-combinations: combinations.cpp
+construct_tree_prev: construct_tree_prev.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
