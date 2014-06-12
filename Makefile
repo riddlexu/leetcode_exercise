@@ -1,9 +1,9 @@
-Default: construct_tree_prev
+Default: construct_tree_post
 CC=g++
 CFLAGS=-Wall -std=c++11 -g
-PROGRAM=construct_tree_prev
+PROGRAM=construct_tree_post
 
-construct_tree_prev: construct_tree_prev.cpp
+construct_tree_post: construct_tree_post.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
