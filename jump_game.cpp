@@ -13,7 +13,7 @@ class Solution {
       B[i] = false;
     }
     B[0] = true;
-    for (int i = 0; i < n; ++i){
+    for (int i = 0; i < n-1; ++i){
       if (!B[i]){
         continue;
       }
