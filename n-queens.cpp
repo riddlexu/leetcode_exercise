@@ -16,7 +16,7 @@ class Solution {
     int num = 0;
     do{
       x_array[num]++;
-      while((x_array[num] < n) && !isVaild(now,x_array[num])){
+      while((x_array[num] < n) && !isVaildv2(x_array,num)){
         x_array[num]++;
       }
       if (x_array[num] == n){
@@ -69,6 +69,18 @@ class Solution {
       }
       else{
         break;
+      }
+    }
+    return true;
+  }
+  bool isVaildv2(int* a, int num){
+    if (num == 0){
+      return true;
+    }
+    for (int i = 0; i < num; ++i)
+    {
+      if ((a[i] == a[num]) || (a[i] + i == a[num] + num) || (a[i] - i == a[num] - num)){
+        return false;
       }
     }
     return true;
