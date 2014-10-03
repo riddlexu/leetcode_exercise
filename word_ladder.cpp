@@ -17,12 +17,12 @@ class Solution {
             if(now[i] != j){
               string tmp = now;
               tmp[i] = j;
-              if(dict.count(tmp) > 0){
+              if(tmp == end){
+                  return distance+1;
+              }
+              else if(dict.count(tmp) > 0){
                 dict.erase(tmp);
                 son.push_back(tmp);
-                if(tmp == end){
-                  return distance+1;
-                }
               }
             }
           }
@@ -30,7 +30,7 @@ class Solution {
         parent.pop_back();
       }
       if(son.empty()){
-        return 0;
+          return 0;
       }
       swap(parent,son);
       distance++;
