@@ -24,9 +24,9 @@ class Solution {
               string tmp = base;
               tmp[i] = j;
               if(tmp == end){
-                  flag = true;
-                  son.push_back(now);
-                  son.back().push_back(tmp);
+                flag = true;
+                son.push_back(now);
+                son.back().push_back(tmp);
               }
               if(flag){
                 break;
