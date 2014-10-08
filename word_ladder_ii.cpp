@@ -8,55 +8,66 @@ class Solution {
       ans.push_back(sol);
       return ans;
     }
-    vector<vector<string> > parent;
-    vector<vector<string> > son;
+    vector<vector<string> > data[2];
     vector<string> now;
     now.push_back(start);
-    parent.push_back(now);
+    int pre = 0;
+    int next = 1;
+    data[pre].push_back(now);
     bool flag = false;
+    dict.erase(start);
+    dict.erase(end);
+    int length = start.size();
+    
     while(!dict.empty()){
-      while(!parent.empty()){
-        now = parent.back();
+      while(!data[pre].empty()){
+        now = data[pre].back();
         string base = now.back();
-        for (int i = 0; i < base.size(); ++i){
+        bool got_it = false;
+        for (int i = 0; i < length; ++i){
+          if(got_it){
+            break;
+          }
           for (char j = 'a'; j <= 'z'; ++j){
             if(base[i] != j){
               string tmp = base;
               tmp[i] = j;
               if(tmp == end){
-                flag = true;
-                son.push_back(now);
-                son.back().push_back(tmp);
+                if(!flag){
+                  data[next].clear();
+                }
+                else {
+                  flag = true;
+                }
+                got_it = true;
+                data[next].push_back(now);
+                data[next].back().push_back(tmp);
               }
               if(flag){
                 break;
               }
               if(dict.count(tmp) > 0){
-                son.push_back(now);
-                son.back().push_back(tmp);
+                data[next].push_back(now);
+                data[next].back().push_back(tmp);
               }
             }
           }
         }
-        parent.pop_back();
+        data[pre].pop_back();
       }
-      if(son.empty()){
+      if(data[next].empty()){
         return ans;
       }
       if(flag){
-        for(int i = 0; i < son.size(); ++i){
-          if(son[i].back() == end){
-            ans.push_back(son[i]);
-          }
-        }
-        return ans;
+        return data[next];
       }
       else{
-        for(int i = 0; i < son.size(); ++i){
-          dict.erase(son[i].back());
+        for(int i = 0; i < data[next].size(); ++i){
+          dict.erase(data[next][i].back());
         }
       }
-      swap(parent,son);
+      pre = !pre;
+      next = !next;
     }
     return ans;
   }
