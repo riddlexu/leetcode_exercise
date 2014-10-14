@@ -77,6 +77,25 @@ class Solution{
   }
 };
 
+class Solution {
+public:
+    void reverseWords(string &s) {
+        string ans = "";
+        int right = s.size();
+        for(int i = s.size() - 1; i >= 0; i--){
+            if(s[i] == ' '){
+                right = i;
+            }
+            else if((i == 0) || (s[i-1] == ' ')){
+                if(ans.size() != 0){
+                    ans.push_back(' ');
+                }
+                ans.append(s.substr(i,right-i));
+            }
+        }
+        s = ans;
+    }
+};
 
 int main()
 {
