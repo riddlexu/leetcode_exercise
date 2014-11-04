@@ -6,10 +6,18 @@ class Solution {
       return;
     }
     buf[y][x] = 'T';
-    search(y-1,x,buf);
-    search(y+1,x,buf);
-    search(y,x-1,buf);
-    search(y,x+1,buf);
+    if(y > 1){
+      search(y-1,x,buf);
+    }
+    if(y < n - 2){
+      search(y+1,x,buf);
+    }
+    if(x > 1){
+      search(y,x-1,buf);
+    }
+    if(x < m - 2){
+      search(y,x+1,buf);
+    }
   }
  public:
   void solve(vector<vector<char>> &board) {
@@ -21,7 +29,7 @@ class Solution {
     if(m == 0){
       return;
     }
-    for(int i = 0; i < m; i++){ 
+    for(int i = 0; i < m; i++){
       search(0,i,board);
       search(n-1,i,board);
     }
