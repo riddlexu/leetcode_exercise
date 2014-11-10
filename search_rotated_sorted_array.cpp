@@ -47,3 +47,49 @@ class Solution {
     return -1;
   }
 };
+
+//new solution
+class Solution {
+ public:
+  int search(int A[], int n, int target) {
+    int left = 0;
+    int right = n-1;
+    while(left <= right){
+      int mid = (left + right) / 2;
+      if(A[mid] == target){
+        return mid;
+      }
+      else if(A[mid] > target){
+        if(A[left] < A[right]){
+          right = mid - 1;
+        }
+        else if(A[right] > A[mid]){
+          right = mid - 1;
+        }
+        else if(A[right] >= target){
+          left = mid + 1;
+        }
+        else {
+          right = mid - 1;
+        }
+      }
+      else{
+        if(A[left] < A[right]){
+          left = mid + 1;
+        }
+        else if(A[right] > A[mid]){
+          if(A[right] >= target){
+            left = mid + 1;
+          }
+          else{
+            right = mid - 1;
+          }
+        }
+        else{
+          left = mid + 1;
+        }
+      }
+    }
+    return -1;
+  }
+};
