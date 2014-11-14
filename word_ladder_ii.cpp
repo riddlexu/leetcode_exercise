@@ -20,12 +20,11 @@ class Solution {
     int length = start.size();
     
     while(!dict.empty()){
-      while(!data[pre].empty()){
-        now = data[pre].back();
+      for(int k = 0; k < data[pre].size(); k++){
+        now = data[pre][k];
         string base = now.back();
-        bool got_it = false;
         for (int i = 0; i < length; ++i){
-          if(got_it){
+          if(flag){
             break;
           }
           for (char j = 'a'; j <= 'z'; ++j){
@@ -34,32 +33,25 @@ class Solution {
               tmp[i] = j;
               if(tmp == end){
                 if(!flag){
-                  data[next].clear();
-                }
-                else {
                   flag = true;
                 }
-                got_it = true;
-                data[next].push_back(now);
-                data[next].back().push_back(tmp);
+                now.push_back(end);
+                ans.push_back(now);
               }
               if(flag){
                 break;
               }
               if(dict.count(tmp) > 0){
+                now.push_back(tmp);
                 data[next].push_back(now);
-                data[next].back().push_back(tmp);
+                now.pop_back();
               }
             }
           }
         }
-        data[pre].pop_back();
       }
-      if(data[next].empty()){
+      if(data[next].empty() || flag){
         return ans;
-      }
-      if(flag){
-        return data[next];
       }
       else{
         for(int i = 0; i < data[next].size(); ++i){
@@ -68,6 +60,7 @@ class Solution {
       }
       pre = !pre;
       next = !next;
+      data[next].clear();
     }
     return ans;
   }
