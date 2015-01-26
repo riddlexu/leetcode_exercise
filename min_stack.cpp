@@ -2,29 +2,29 @@
 
 class MinStack {
  private:
-  std::list<int> dataStack;
-  std::list<int> minStack;
+  stack<int> dataStack;
+  stack<int> minStack;
  public:
   void push(int x) {
-    dataStack.push_front(x);
-    if (x < minStack.front()){
-      minStack.push_front(x);
+    dataStack.push(x);
+    if (minStack.empty() || (x <= minStack.top())){
+      minStack.push(x);
     }
   }
 
   void pop() {
-    int ele = dataStack.front();
-    dataStack.pop_front();
-    if ((ele == minStack.front()) && ((dataStack.size() == 0) || (dataStack.front() != ele))){
-      minStack.pop_front();
+    int ele = dataStack.top();
+    dataStack.pop();
+    if (ele == minStack.top()){
+      minStack.pop();
     }
   }
 
   int top() {
-    return dataStack.front();   
+    return dataStack.top();   
   }
 
   int getMin() {
-    return minStack.front();  
+    return minStack.top();  
   }
 };
