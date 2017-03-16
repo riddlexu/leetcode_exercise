@@ -6,12 +6,10 @@ func twoSum(nums []int, target int) []int {
 		if ok {
 			ans[0] = loc
 			ans[1] = index
-			return ans
-			
+			return ans			
 		}
 		table[v] = index
 		
 	}
 	return ans
-	
 }
