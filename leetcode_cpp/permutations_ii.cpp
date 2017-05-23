@@ -33,6 +33,7 @@ class Solution {
           ans.push_back(sols[j]);
         }
       }
+      //not swap back. It's the point!!!
     }
     return ans;
   }
